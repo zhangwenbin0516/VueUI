@@ -27,9 +27,12 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'src': path.join(__dirname, '..', 'src'),
       'assets': path.join(__dirname, '..', 'src/assets'),
       'ui':  path.join(__dirname, '..', 'src/UI'),
-      'themes': path.join(__dirname, '..', 'src/themes')
+      'themes': path.join(__dirname, '..', 'src/themes'),
+      'less': path.join(__dirname, '..', 'src/assets/less'),
+      'img': path.join(__dirname, '..', 'src/assets/images')
     }
   },
   module: {
@@ -43,6 +46,16 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.css$/,
+        include: '/src/',
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.less$/,
+        include: '/src/',
+        use: ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

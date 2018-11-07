@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import 'less/pages.less'
 export default {
   name: 'App'
 }

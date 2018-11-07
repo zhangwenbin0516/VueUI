@@ -7,8 +7,10 @@ import 'babel-polyfill'
 Vue.config.productionTip = false
 
 import axios from './http'
+import Tools from 'ui/'
 
 Vue.prototype.$axios = axios
+Vue.use(Tools)
 
 
 /* eslint-disable no-new */
@@ -16,20 +18,5 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>',
-  created() {
-    this.$axios({
-      url: '/api/dictionaryDetailController//web_datagrid2.form',
-      type: 'post',
-      data: {
-        typeCode: ''//'enterpriseClassification'
-      },
-      success: function (res) {
-        console.log(res, 'asddddd')
-      },
-      error: function(err) {
-        console.log(err)
-      }
-    })
-  }
+  template: '<App/>'
 })

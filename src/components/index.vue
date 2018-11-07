@@ -1,6 +1,10 @@
 <template>
   <div class="root">
-asdadasda
+    <ui-header />
+    <div class="master">
+      <router-view />
+      <ui-footer />
+    </div>
   </div>
 </template>
 <script>

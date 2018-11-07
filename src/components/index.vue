@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-asd
+asdadasda
   </div>
 </template>
 <script>

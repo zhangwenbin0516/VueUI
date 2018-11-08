@@ -13,3 +13,5 @@ this.$axios({
   }
 })
 ~~~
+
+* http数据请求使用Promise异步实现

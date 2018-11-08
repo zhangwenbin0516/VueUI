@@ -6,6 +6,7 @@
 
 <script>
 import 'less/pages.less'
+import 'themes/tools/tools.less'
 export default {
   name: 'App'
 }

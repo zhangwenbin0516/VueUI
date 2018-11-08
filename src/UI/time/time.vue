@@ -1,10 +1,10 @@
 <template>
-  <div class="form">
+  <div class="timestamp">
 
   </div>
 </template>
 <script>
   export default {
-    name: 'ui-form',
+    name: 'ui-time'
   }
 </script>

@@ -11,10 +11,8 @@
   </div>
 </template>
 <script>
-  import UiFooter from "../UI/footer/footer";
   export default {
     name: 'root',
-    components: {UiFooter},
     data() {
       return {
         height: 'auto',

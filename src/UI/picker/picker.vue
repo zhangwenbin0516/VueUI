@@ -1,10 +1,10 @@
 <template>
-  <div class="form">
+  <div class="picker">
 
   </div>
 </template>
 <script>
   export default {
-    name: 'ui-form',
+    name: 'ui-picker'
   }
 </script>

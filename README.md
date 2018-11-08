@@ -1,21 +1,23 @@
-# vue-ui
+# vue-component-front
 
-> vue-ui
+[模板地址](https://github.com/zhangwenbin0516/vue-component-front)**https://github.com/zhangwenbin0516/vue-component-front**
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+## **项目模板使用说明**
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+> **初次安装命令**
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+  * 使用 npm install
+
+> **本地开发启动命令**
+
+  * 使用 npm run dev
+
+> 项目打包上线命令
+
+  * 使用 npm run build
+
+

@@ -1,0 +1,52 @@
+@import "pages";
+.menu {
+  height: 100%;
+  &_content {
+    .flex(l);
+    height: 100%;
+    li {
+      height: 100%;
+      .font(16px, @b333);
+      position: relative;
+      a {
+        height: 100%;
+        padding: 0 15px;
+        .flex(l);
+      }
+      &:hover ul.child {
+        display: block;
+      }
+    }
+    ul.child {
+      .position(absolute, 100% + 3px, 50%);
+      .font(14px);
+      display: none;
+      transform: translateX(50%);
+      -webkit-transform: translateX(50%);
+      background: @fff;
+      border-radius: 5px;
+      border: 1px solid @ccc;
+      -webkit-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.1);
+      &::before {
+        content: '';
+        .position(absolute, -13px, 50%);
+        transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        border-bottom: 12px solid @ccc;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
+      &::after {
+        content: '';
+        .position(absolute, -11px, 50%);
+        transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        border-bottom: 12px solid @fff;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.position(@p: relative, @t: auto, @r: auto, @b: auto, @l: auto, @z: 1) {
+  position: @p;
+  top: @t;
+  right: @r;
+  bottom: @b;
+  left: @l;
+  z-index: @z;
+}
+.flex() {
+  display: flex;
+  display: -webkit-flex;
+}
+.flex(c) {
+  .flex();
+  justify-content: center;
+  align-items: center;
+}
+.flex(l) {
+  .flex();
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex(r) {
+  .flex();
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex(t) {
+  .flex();
+  justify-content: center;
+  align-items: flex-start;
+}
+.flex(b) {
+  .flex();
+  justify-content: center;
+  align-items: flex-end;
+}
+.font(@s: 13px, @c: @b333, @f: 500) {
+  font-size: @s;
+  color: @c;
+  font-weight: @f;
+}
+@b333: #333;
+@fff: #fff;
+@ccc: #ccc;

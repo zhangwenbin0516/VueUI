@@ -1,0 +1,29 @@
+@import "./pages";
+.header {
+  width: 100%;
+  .position(absolute, 0, 0, auto, 0, 10);
+  background: @b333;
+  &_content {
+    width: 1200px;
+    height: 80px;
+    position: relative;
+    left: 50%;
+    margin-left: -600px;
+    .flex(l);
+    &_logo {
+      width: 120px;
+      height: 100%;
+      .flex(l);
+      span {
+        .font(28px, @fff, 600);
+      }
+      img {
+        height: 60%;
+      }
+    }
+    &_info {
+      height: 100%;
+      .position(absolute, 0, 0);
+    }
+  }
+}

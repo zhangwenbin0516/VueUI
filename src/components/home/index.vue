@@ -8,6 +8,7 @@
       @input="getData"
     />
     <ui-tree
+      :checkbox=true
       :treeLists="lists"
       :keys="keys"
     />
@@ -31,22 +32,20 @@
             lists: [
               {
                 name: '测试',
-                id: 0,
+                id: 3,
+                value: 0,
+              },
+              {
+                name: '测试',
+                id: 4,
                 value: 0,
               }
             ]
           },
           {
             name: '测试',
-            id: 0,
-            value: 0,
-            lists: [
-              {
-                name: '测试',
-                id: 0,
-                value: 0,
-              }
-            ]
+            id: 2,
+            value: 1
           }
         ]
       }

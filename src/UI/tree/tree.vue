@@ -2,25 +2,24 @@
   <div class="trees">
     <div class="trees_list"
       v-for="(list, index) in treeLists"
-       :class="box + ' ' + list.all"
+      :class="list.all"
     >
-      <div class="trees_name">
-        <div class="checkbox"
-              @click="getClick(list)"
-             :class="[list.show == 1 ? 'show' : 'hide']"
-        >
-        </div>
-        <div class="trees_text">
-          {{list.name}}
-        </div>
+      <div class="trees_name"
+        :class="list.show"
+      >
+        <div
+          class="checkbox"
+          :class="[checkbox == true ? 'isCheckbox' : 'isBox']"
+          @click="getCheckbox(list)"
+        ></div>
+        <div class="text">{{list.name}}</div>
       </div>
       <ui-tree
-        v-if="list.lists"
-        :treeLists="list.lists"
-        :index="index"
         :keys="keys"
         :checkbox="checkbox"
-        @getTrees="getTrees"
+        :index="index"
+        :treeLists="list.lists"
+        @treeData="treeData"
       />
     </div>
   </div>
@@ -29,72 +28,61 @@
   export default {
     name: 'ui-tree',
     props: {
-      checkbox: {
-        type: Boolean,
-        default: () => false
-      },
-      value: {
-        type: Object,
-        default: () => {return {}}
-      },
-      keys: {
-        type: Array,
-        default: () => []
-      },
       treeLists: {
         type: Array,
         default: () => []
+      },
+      keys: Array,
+      checkbox: Boolean,
+      value: Object
+    },
+    watch: {
+      keys: {
+        handler() {
+          this.getLists(this.treeLists);
+        }
       }
     },
     created() {
-       this.box = this.checkbox == true ? 'isCheckbox' : 'isBox';
-       this.getLists(this.treeLists);
+      this.getLists(this.treeLists);
     },
     methods: {
-      getClick(val) {
-        if (this.keys.indexOf(val.id) > -1) {
-          this.keys.splice(this.keys.indexOf(val.id), 1);
-        } else {
-          this.keys.push(val.id);
-        }
-        this.getTrees(val, this.$attrs.index)
-      },
-      getTrees(data, id) {
-        console.log(data, id)
-        if (typeof id == 'number') {
-          if (this.$parent.getTrees) {
-            this.$parent.getTrees(this.keys);
-          }
-        } else {
-          this.keys = data;
-          this.getLists(this.treeLists);
-        }
-      },
       getLists(data, val) {
-        let self = this;
-
-        data.forEach((key) => {
-          if (self.keys.indexOf(key.id) > -1) {
-            key.show = 1;
+        let self = this, num = 0;
+        if (data) {
+          data.forEach((key) => {
+            if (self.keys.indexOf(key.id) > -1) {
+              self.$set(key, 'show', 'show');
+              num++;
+            } else {
+              self.$set(key, 'show', 'hide');
+            }
             if (val) {
-              if (val.num) {
-                val.num++;
+              if (val.lists.length <= num) {
+                self.$set(val, 'all', 'all');
+                self.$set(val, 'show', 'show');
               } else {
-                val.num = 1;
-              }
-              if (val.num == val.lists.length) {
-                val.all = 'all';
-              } else {
-                val.all = 'isAll';
+                self.$set(val, 'all', 'isAll');
+                self.$set(val, 'show', 'hide');
               }
             }
-          } else {
-            key.show = 0;
-          }
-          if (key.lists) {
-            self.getLists(key.lists, key);
-          }
-        })
+            if (key.lists) {
+              self.getLists(key.lists, key);
+            }
+          })
+        }
+
+      },
+      getCheckbox(list) {
+        if (this.keys.indexOf(list.id) > -1) {
+          this.keys.splice(this.keys.indexOf(list.id), 1);
+        } else {
+          this.keys.push(list.id);
+        }
+        this.treeData();
+      },
+      treeData(data) {
+        this.$set(this.$parent, 'keys', this.keys);
       }
     }
   }

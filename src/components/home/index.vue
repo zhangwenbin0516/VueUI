@@ -11,14 +11,13 @@
       :checkbox=true
       :treeLists="lists"
       :keys="keys"
+      @treeData="treeData"
     />
   </div>
 </template>
 <script>
-  import UiTree from "../../UI/tree/tree";
   export default {
     name: 'home',
-    components: {UiTree},
     data() {
       return {
         value: '',
@@ -28,7 +27,6 @@
             name: '测试',
             id: 0,
             value: 0,
-            keys: [],
             lists: [
               {
                 name: '测试',
@@ -52,7 +50,10 @@
     },
     methods: {
       getData(data) {
-console.log(this.value,data)
+
+      },
+      treeData(data) {
+console.log(data)
       }
     }
   }

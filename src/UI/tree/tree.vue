@@ -58,13 +58,18 @@
               self.$set(key, 'show', 'hide');
             }
             if (val) {
+              self.$set(val, 'num', num);
               if (val.lists.length <= num) {
                 self.$set(val, 'all', 'all');
                 self.$set(val, 'show', 'show');
-              } else {
+                if (self.keys.indexOf(val.id) < 0) {
+                  self.keys.push(val.id);
+                }
+              } else if (val.lists.length > (num -1 )) {
                 self.$set(val, 'all', 'isAll');
                 self.$set(val, 'show', 'hide');
               }
+
             }
             if (key.lists) {
               self.getLists(key.lists, key);
@@ -73,13 +78,52 @@
         }
 
       },
+      getSort(data, id) {
+        let self = this;
+        data.forEach((key) => {
+          if (id == 0) {
+            if (self.keys.indexOf(key.id) > -1) {
+              this.keys.splice(this.keys.indexOf(key.id), 1);
+            }
+          } else {
+            if (self.keys.indexOf(key.id) < 0) {
+              this.keys.push(key.id);
+            }
+          }
+        })
+      },
       getCheckbox(list) {
-        if (this.keys.indexOf(list.id) > -1) {
-          this.keys.splice(this.keys.indexOf(list.id), 1);
+        if (list.lists) {
+          let num = 0
+          if (this.keys.indexOf(list.id) > -1) {
+            this.keys.splice(this.keys.indexOf(list.id), 1);
+          } else {
+            this.keys.push(list.id);
+            num = 1;
+          }
+          this.getSort(list.lists, num);
         } else {
-          this.keys.push(list.id);
+          if (this.keys.indexOf(list.id) > -1) {
+            this.keys.splice(this.keys.indexOf(list.id), 1);
+            if (this.$attrs.index) {
+              this.$parent.treeLists[this.$attrs.index].num--;
+            }
+          } else {
+            this.keys.push(list.id);
+            if (this.$attrs.index) {
+              this.$parent.treeLists[this.$attrs.index].num--;
+            }
+          }
+          if (this.$attrs.index) {
+            if (this.$parent.treeLists[this.$attrs.index].num >= this.$parent.treeLists[this.$attrs.index].lists.length) {
+              this.keys.push(this.$parent.treeLists[this.$attrs.index].id);
+            } else {
+              this.keys.splice(this.keys.indexOf(this.$parent.treeLists[this.$attrs.index].id), 1);
+            }
+          }
+          this.treeData();
+
         }
-        this.treeData();
       },
       treeData(data) {
         this.$set(this.$parent, 'keys', this.keys);

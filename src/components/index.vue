@@ -55,16 +55,20 @@
         }
       },
       getSize() {
-        let ele = this.$el.querySelector('.master');
-        let header = this.$el.querySelector('header');
-        let footer = this.$el.querySelector('footer');
-        let master = this.$el.querySelector('.master_content');
-        let space = ele.offsetHeight - header.offsetHeight - footer.offsetHeight;
-        let cons = master.offsetHeight;
-        if (cons > space) {
-          this.height = 'auto';
-        } else {
-          this.height = space + 'px';
+        try {
+          let ele = this.$el.querySelector('.master');
+          let header = this.$el.querySelector('header');
+          let footer = this.$el.querySelector('footer');
+          let master = this.$el.querySelector('.master_content');
+          let space = ele.offsetHeight - header.offsetHeight - footer.offsetHeight;
+          let cons = master.offsetHeight;
+          if (cons > space) {
+            this.height = 'auto';
+          } else {
+            this.height = space + 'px';
+          }
+        } catch (e) {
+          
         }
       }
     },

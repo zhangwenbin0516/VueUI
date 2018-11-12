@@ -3,9 +3,8 @@
     <ui-input
       v-model="value"
       type="text"
-      reg=""
-      placeholder="请输入关键词"
-      @input="getData"
+      :placeholder="placeholder"
+      @getData="getData"
     />
     <ui-tree
       :checkbox=true
@@ -22,6 +21,11 @@
     data() {
       return {
         value: '',
+        reg: {
+          name: '您输入的手机号码错误',
+          code: '/[0-9]{0-11}/'
+        },
+        placeholder: '请输入企业关键词',
         keys: [0, 1, 2, 4],
         lists: [
           {
@@ -48,6 +52,13 @@
           }
         ]
       }
+    },
+    created() {
+      this.$message({
+        message: '这是一条信息',
+        type: 'info',
+        time: 1000
+      });
     },
     methods: {
       getData(data) {

@@ -57,7 +57,6 @@
       }
     },
     created() {
-      console.log(this.show)
       this.getLists(this.treeLists);
     },
     methods: {

@@ -14,30 +14,35 @@
     props: {
       value: {
         type: [Number, String],
-        default: false
+        default: () => {return ''}
       },
       type: {
-        type: [Boolean, Number, String],
-        default: true
+        type: String,
+        default: () => {return 'text'}
+      },
+      reg: {
+        type: [Boolean, Object],
+        default: () => {return false}
+      },
+      placeholder: {
+        type: String,
+        default: () => {return '请输入关键词'}
       }
     },
     data() {
       return {
-        placeholder: '',
         message: ''
       }
     },
     created() {
-      this.placeholder = this.$attrs.placeholder || '请输入关键词';
-      this.message = this.value || '';
-    },
-    mounted() {
-      this.$el.removeAttribute('placeholder');
+      this.message = this.value;
     },
     methods: {
       getData() {
-        if (this.$parent.input) {
-          this.$emit('input', this.message);
+        if (this.reg && !this.reg.code.test(this.message)) {
+          this.message = this.value;
+
+        } else {
 
         }
       }

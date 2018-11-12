@@ -8,8 +8,10 @@ Vue.config.productionTip = false
 
 import axios from './http'
 import Tools from 'ui/'
+import message from 'ui/message/'
 
 Vue.prototype.$axios = axios
+Vue.prototype.$message = message
 Vue.use(Tools)
 
 

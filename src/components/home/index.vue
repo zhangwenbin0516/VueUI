@@ -10,6 +10,7 @@
     <ui-tree
       :checkbox=true
       :treeLists="lists"
+      :show=true
       :keys="keys"
       @treeData="treeData"
     />
@@ -21,7 +22,7 @@
     data() {
       return {
         value: '',
-        keys: [],
+        keys: [0, 1, 2, 4],
         lists: [
           {
             name: '测试',

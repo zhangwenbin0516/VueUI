@@ -72,8 +72,10 @@
               self.$set(key, 'show', 'hide');
             }
             self.$set(key, 'display', 'none');
-            if(key.lists && self.show && num > 0) {
+            if(key.lists && self.show) {
               self.$set(key, 'display', 'block');
+            } else if(key.lists && !self.show) {
+              self.$set(key, 'display', 'none');
             }
             if (val) {
               self.$set(val, 'num', num);
@@ -88,9 +90,6 @@
                 self.$set(val, 'show', 'hide');
                 if (num == 0) {
                   self.$set(val, 'all', '');
-                }
-                if (num > 0) {
-                  self.$set(val, 'display', 'block');
                 }
               }
 

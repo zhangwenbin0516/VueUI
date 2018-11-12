@@ -56,7 +56,7 @@
     created() {
       this.$message({
         message: '这是一条信息',
-        type: 'info',
+        type: 'error',
         time: 1000
       });
     },

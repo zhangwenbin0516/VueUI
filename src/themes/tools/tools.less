@@ -11,20 +11,66 @@
   box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.09);
   .flex(l);
   border-radius: 5px;
+  &> span {
+    margin-right: 5px;
+    &::before {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      .font(13px, @fff);
+      .flex(c);
+    }
+  }
   &_info {
     .font(14px, @b999);
     background: @edf2fc;
     span {
-      margin-right: 5px;
       &::before {
         content: 'i';
         background: @b999;
-        display: inline-block;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        .font(13px, @fff);
-        .flex(c);
+        font-style: italic;
+      }
+    }
+  }
+  &_warning {
+    .font(14px, @ye6a23c);
+    background: @yfdf6ec;
+    span {
+      &::before {
+        content: '!';
+        background: @ye6a23c;
+      }
+    }
+  }
+  &_success {
+    .font(14px, @green);
+    background: @wf0f9eb;
+    span {
+      position: relative;
+      &::before {
+        content: '';
+        background: @green;
+      }
+      &::after {
+        content: '';
+        width: 10px;
+        height: 4px;
+        border-left: 1px solid @fff;
+        border-bottom: 1px solid @fff;
+        .position(absolute, 5px, 3px);
+        transform: rotate(-35deg);
+        -webkit-transform: rotate(-35deg);
+      }
+    }
+  }
+  &_error {
+    .font(14px, @red);
+    background: @rfef0f0;
+    span {
+      &::before {
+        content: 'i';
+        background: @red;
         font-style: italic;
       }
     }

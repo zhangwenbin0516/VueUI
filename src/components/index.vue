@@ -44,7 +44,9 @@
       this.getUrl();
     },
     mounted() {
-      this.getSize();
+      setTimeout(() => {
+        this.getSize();
+      },100);
     },
     methods: {
       getUrl() {

@@ -3,7 +3,51 @@
   width: 100%;
   &_list {
     width: 100%;
+    &.block {
+      .trees_name {
+        cursor: pointer;
+        &::before {
+          content: '';
+          border-left: 8px solid @b999;
+          border-top: 7px solid transparent;
+          border-bottom: 7px solid transparent;
+          .position(absolute,8px, auto, auto, 7px);
+          -webkit-transform: rotate(38deg);
+          -moz-transform: rotate(38deg);
+          -ms-transform: rotate(38deg);
+          -o-transform: rotate(38deg);
+          transform: rotate(38deg);
+        }
+      }
+    }
+    &.none {
+      .trees_name {
+        cursor: pointer;
+        &::before {
+          content: '';
+          border-left: 10px solid @b999;
+          border-top: 7px solid transparent;
+          border-bottom: 7px solid transparent;
+          .position(absolute,6px, auto, auto, 5px);
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+      }
+      &> .trees {
+        display: none;
+      }
+    }
     &.all {
+      &> .hide {
+        .checkbox {
+          &::before {
+            display: none;
+          }
+        }
+      }
       .checkbox {
         border: 1px solid @ccc;
         display: inline-block;
@@ -24,6 +68,31 @@
         }
       }
     }
+    &.isAll {
+      .trees {
+        .hide {
+          .checkbox {
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+      .checkbox {
+        border: 1px solid @ccc;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        .position(absolute, 6px, auto, auto, 5px);
+        cursor: pointer;
+
+        &::before {
+          content: '-';
+          .position(absolute, -6px, 3px);
+          .font(16px, @b333, 600);
+        }
+      }
+    }
     .trees {
       padding-left: 25px;
     }
@@ -32,13 +101,16 @@
     .flex(l);
     padding: 5px 0 5px 25px;
     position: relative;
-    .isCheckbox {
-      border: 1px solid @ccc;
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      .position(absolute, 6px, auto, auto, 5px);
-      cursor: pointer;
+    &.isCheckbox {
+      padding-left: 40px;
+      .checkbox {
+        border: 1px solid @ccc;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        .position(absolute, 6px, auto, auto, 20px);
+        cursor: pointer;
+      }
     }
     &.show {
       .checkbox {

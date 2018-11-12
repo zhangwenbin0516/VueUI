@@ -2,14 +2,13 @@
   <div class="trees">
     <div class="trees_list"
       v-for="(list, index) in treeLists"
-      :class="list.all"
+      :class="[list.all, list.display]"
     >
       <div class="trees_name"
-        :class="list.show"
+           :class="[checkbox == true ? 'isCheckbox' : 'isBox', list.show]"
       >
         <div
           class="checkbox"
-          :class="[checkbox == true ? 'isCheckbox' : 'isBox']"
           @click="getCheckbox(list)"
         ></div>
         <div class="text">{{list.name}}</div>
@@ -17,6 +16,7 @@
       <ui-tree
         :keys="keys"
         :checkbox="checkbox"
+        :show="show"
         :index="index"
         :treeLists="list.lists"
         @treeData="treeData"
@@ -32,9 +32,22 @@
         type: Array,
         default: () => []
       },
-      keys: Array,
-      checkbox: Boolean,
-      value: Object
+      keys: {
+        type: Array,
+        default: () => []
+      },
+      checkbox: {
+        type: Boolean,
+        default: () => false
+      },
+      value: {
+        type: Object,
+        default: () => {{}}
+      },
+      show: {
+        type: Boolean,
+        default: () => false
+      }
     },
     watch: {
       keys: {
@@ -44,6 +57,7 @@
       }
     },
     created() {
+      console.log(this.show)
       this.getLists(this.treeLists);
     },
     methods: {
@@ -57,6 +71,10 @@
             } else {
               self.$set(key, 'show', 'hide');
             }
+            self.$set(key, 'display', 'none');
+            if(key.lists && self.show && num > 0) {
+              self.$set(key, 'display', 'block');
+            }
             if (val) {
               self.$set(val, 'num', num);
               if (val.lists.length <= num) {
@@ -68,6 +86,12 @@
               } else if (val.lists.length > (num -1 )) {
                 self.$set(val, 'all', 'isAll');
                 self.$set(val, 'show', 'hide');
+                if (num == 0) {
+                  self.$set(val, 'all', '');
+                }
+                if (num > 0) {
+                  self.$set(val, 'display', 'block');
+                }
               }
 
             }

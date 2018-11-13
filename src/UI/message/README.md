@@ -1,13 +1,13 @@
-#Message消息框
+## Message消息框
 
-* ###全局配置：
+* ### 全局配置：
 
 ```bash
 import message from 'ui/message/'   //引入文件地址
 Vue.prototype.$message = message    //添加到全局配置中
 ```
 
-* ###示例代码：
+* ### 示例代码：
 
 ```bash
 1. 示例一：

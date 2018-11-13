@@ -1,10 +1,14 @@
 <template>
-  <div class="input">
+  <div class="input" :class="isColor">
     <input
       :type="type"
       :placeholder="placeholder"
       v-model="message"
+      :maxlength="maxlength"
       @input="getData"
+      @blur="getBlur"
+      @focus="getFocus"
+      @keyup="getEnter"
     />
   </div>
 </template>
@@ -14,6 +18,10 @@
     props: {
       value: {
         type: [Number, String],
+        default: () => {return ''}
+      },
+      maxlength: {
+        type: [Number],
         default: () => {return ''}
       },
       type: {
@@ -31,7 +39,8 @@
     },
     data() {
       return {
-        message: ''
+        message: '',
+        isColor: ''
       }
     },
     created() {
@@ -39,19 +48,23 @@
     },
     methods: {
       getData() {
-        console.log(this.reg)
-        this.$message({
-          message: this.reg.name,
-          type: 'warning'
-        });
-        if (this.reg && !this.reg.code.test(this.message)) {
-          this.message = this.value;
-          this.$message({
-            message: this.reg.name,
-            type: 'warning'
-          });
-        } else {
-
+        this.$emit('input', this.message);
+      },
+      getBlur() {
+        if (this.reg && this.reg.code) {
+          let reg = new RegExp(this.reg.code);
+          if (!reg.test(this.message)) {
+            this.$message(this.reg.name, 'warning');
+            this.isColor = 'red';
+          }
+        }
+      },
+      getFocus() {
+        this.isColor = '';
+      },
+      getEnter(e) {
+        if (e.keyCode == 13) {
+          this.$emit('getInput', this.message);
         }
       }
     }

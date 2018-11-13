@@ -210,3 +210,21 @@
     }
   }
 }
+.input {
+  position: relative;
+  border: 1px solid @ccc;
+  .flex(l);
+  &.red {
+    border-color: @red;
+    & > input {
+      color: @red;
+    }
+  }
+  & > input {
+    border: none;
+    height: 100%;
+    padding: 0 15px;
+    width: 100%;
+    display: inline-block;
+  }
+}

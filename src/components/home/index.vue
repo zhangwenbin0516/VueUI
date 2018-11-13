@@ -4,14 +4,15 @@
       v-model="value"
       type="text"
       :placeholder="placeholder"
-      @getData="getData"
+      :reg="reg"
+      :maxlength="length"
+      @getInput="getData"
     />
     <ui-tree
       :checkbox=true
       :treeLists="lists"
       :show=true
       :keys="keys"
-      :compare="keys"
       @treeData="treeData"
     />
   </div>
@@ -22,9 +23,10 @@
     data() {
       return {
         value: '',
+        length: 11,
         reg: {
           name: '您输入的手机号码错误',
-          code: '/[0-9]{0-11}/'
+          code: '^1[34578]+[0-9]{4,8}$'
         },
         placeholder: '请输入企业关键词',
         keys: [0, 1, 2, 4],
@@ -59,7 +61,7 @@
     },
     methods: {
       getData(data) {
-
+console.log(data)
       },
       treeData(data) {
 console.log(data)

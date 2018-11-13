@@ -8,6 +8,13 @@
       :maxlength="length"
       @getInput="getData"
     />
+    <ui-textarea
+      v-model="value1"
+      :placeholder="placeholder"
+      :reg="reg"
+      :maxlength="length"
+      @getTextarea="getData"
+    />
     <ui-tree
       :checkbox=true
       :treeLists="lists"
@@ -23,7 +30,8 @@
     data() {
       return {
         value: '',
-        length: 11,
+        value1: '',
+        length: 200,
         reg: {
           name: '您输入的手机号码错误',
           code: '^1[34578]+[0-9]{4,8}$'

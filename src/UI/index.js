@@ -1,10 +1,11 @@
 "use strict"
 const config = {
-  header: require('ui/header/header'),      //头部
-  footer: require('ui/footer/footer'),      //尾部
-  nav: require('ui/menu/nav'),              //主菜单
-  input: require('ui/input/input'),         //输入框
-  tree: require('ui/tree/tree'),            //树状图
+  header: require('ui/header/header'),         //头部
+  footer: require('ui/footer/footer'),         //尾部
+  nav: require('ui/menu/nav'),                //主菜单
+  input: require('ui/input/input'),           //输入框
+  tree: require('ui/tree/tree'),              //树状图
+  textarea: require('ui/textarea/textarea'),  //文本域
 }
 
 const Tools = {

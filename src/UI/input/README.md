@@ -27,6 +27,6 @@ placeholder: '请输入企业关键词',
 
 * ### 数据调用事件说明：
 
-getData(data) { //data为返回的值
-  
-}
+```bash
+getData(data) {}  //data为返回的值,等于this.value
+```

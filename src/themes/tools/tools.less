@@ -228,3 +228,24 @@
     display: inline-block;
   }
 }
+.textarea {
+  position: relative;
+  border: 1px solid @ccc;
+  .flex(l);
+  &.red {
+    border-color: @red;
+    & > textarea {
+      color: @red;
+    }
+  }
+  & > textarea {
+    padding: 10px 10px 30px 10px;
+    .font(14px, @b333);
+    resize: none;
+    border: none;
+  }
+  &_size {
+    .position(absolute, auto, 10px, 5px);
+    .font(12px, @b333);
+  }
+}

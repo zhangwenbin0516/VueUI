@@ -5,7 +5,7 @@
       :class="[list.all, list.display]"
     >
       <div class="trees_name"
-           :class="[checkbox == true ? 'isCheckbox' : 'isBox', list.show]"
+           :class="[checkbox == true ? 'isCheckbox' : 'isBox', list.show, list.compare]"
       >
         <div
           class="checkbox"
@@ -19,6 +19,7 @@
         :show="show"
         :index="index"
         :treeLists="list.lists"
+        :compare="compare"
         @treeData="treeData"
       />
     </div>
@@ -33,6 +34,10 @@
         default: () => []
       },
       keys: {
+        type: Array,
+        default: () => []
+      },
+      compare: {
         type: Array,
         default: () => []
       },
@@ -69,6 +74,11 @@
               num++;
             } else {
               self.$set(key, 'show', 'hide');
+            }
+            if (self.compare.indexOf(key.id) > -1) {
+              self.$set(key, 'compare', 'red');
+            } else {
+              self.$set(key, 'compare', '');
             }
             self.$set(key, 'display', 'none');
             if(key.lists && self.show) {

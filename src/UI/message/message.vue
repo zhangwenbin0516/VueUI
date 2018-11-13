@@ -1,6 +1,6 @@
 <template>
   <div class="message" :class="'message_' + type">
-    <span></span>{{message}}
+    <span></span><div class="text" v-html="message"></div>
   </div>
 </template>
 <script>
@@ -15,7 +15,7 @@
       }
     },
     mounted() {
-      //this.close();
+      this.close();
     },
     methods: {
       close() {

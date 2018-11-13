@@ -11,6 +11,7 @@
       :treeLists="lists"
       :show=true
       :keys="keys"
+      :compare="keys"
       @treeData="treeData"
     />
   </div>
@@ -54,11 +55,6 @@
       }
     },
     created() {
-      this.$message({
-        message: '这是一条信息',
-        type: 'info',
-        time: 1000
-      });
     },
     methods: {
       getData(data) {

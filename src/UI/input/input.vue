@@ -39,9 +39,17 @@
     },
     methods: {
       getData() {
+        console.log(this.reg)
+        this.$message({
+          message: this.reg.name,
+          type: 'warning'
+        });
         if (this.reg && !this.reg.code.test(this.message)) {
           this.message = this.value;
-
+          this.$message({
+            message: this.reg.name,
+            type: 'warning'
+          });
         } else {
 
         }

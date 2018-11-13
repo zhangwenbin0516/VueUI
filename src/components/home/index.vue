@@ -55,6 +55,7 @@
       }
     },
     created() {
+
     },
     methods: {
       getData(data) {

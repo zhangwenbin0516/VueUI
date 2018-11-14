@@ -8,6 +8,7 @@
   v-model="value2"            //接受选择数据
   :checked=true               //是否为多选
   :disable=true               //是否禁止选择
+  :clear=true                 //可清除
   :readonly=true              //是否可输入并搜索
   :placeholder="placeholder"  //提示信息，默认请选择
   @getOption="getData"        //点击后触发事件

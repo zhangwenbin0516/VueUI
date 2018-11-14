@@ -7,6 +7,7 @@ const config = {
   tree: require('ui/tree/tree'),              //树状图
   textarea: require('ui/textarea/textarea'),  //文本域
   select: require('ui/select/select'),        //下拉框
+  option: require('ui/select/option'),        //下拉列表
 }
 
 const Tools = {

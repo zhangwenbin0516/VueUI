@@ -4,14 +4,12 @@
       v-model="value"
       type="text"
       :placeholder="placeholder"
-      :reg="reg"
       :maxlength="length"
       @getInput="getData"
     />
     <ui-textarea
       v-model="value1"
       :placeholder="placeholder"
-      :reg="reg"
       :maxlength="length"
       @getTextarea="getData"
     />
@@ -26,7 +24,6 @@
       :options="options"
       v-model="value2"
       :checked=true
-      :disabled=true
       :placeholder="placeholder"
       @getOption="getData"
     />
@@ -44,6 +41,46 @@
         value2: '123',
         length: 200,
         options: [
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
+          {
+            id: 0,
+            name: '测试',
+            value: 'ceshi'
+          },
           {
             id: 0,
             name: '测试',

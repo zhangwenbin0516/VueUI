@@ -1,6 +1,6 @@
 <template>
   <div class="input"
-       :class="[isColor, (message != '') && (!disabled) ? 'close' : '']"
+       :class="[isColor, clear ? 'close' : '']"
        @mouseenter="getMouseEnter($event)"
        @mouseleave="getMouseLeave($event)"
   >
@@ -41,6 +41,10 @@
       type: {
         type: String,
         default: () => {return 'text'}
+      },
+      clear: {
+        type: Boolean,
+        default: () => false
       },
       reg: {
         type: [Boolean, Object],
@@ -94,7 +98,7 @@
           let yTp = (h - 20) / 2;
           let yBm = yTp + 20;
           if (x > xLt && x < xRt) {
-            if (y > yTp && y < yBm && !self.disabled) {
+            if (y > yTp && y < yBm && self.clear) {
               self.message = '';
             }
           }

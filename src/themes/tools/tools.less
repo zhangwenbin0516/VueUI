@@ -220,7 +220,7 @@
       color: @red;
     }
   }
-  &.close {
+  &.close:hover {
     &::before {
       width: 20px;
       height: 20px;
@@ -264,5 +264,54 @@
   }
 }
 .select {
-
+  position: relative;
+  .input {
+    input {
+      cursor: pointer;
+    }
+    &::before {
+      content: '';
+      .position(absolute, 50%, 8px, auto, auto, 10);
+      border-top: 10px solid @b999;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+    }
+  }
+  &_option {
+    max-height: 300px;
+    overflow: hidden;
+    .position(absolute, auto, 0, auto, 0, 10);
+    background: @fff;
+    border: 1px solid @ccc;
+  }
+  .options {
+    width: 100%;
+    ul {
+      width: 100%;
+    }
+    li {
+      padding: 8px 20px 8px 10px;
+      cursor: pointer;
+      .font(13px, @b333);
+      &:hover {
+        background: rgba(0,0,0,0.05);
+      }
+    }
+  }
+}
+.scrolls {
+  .position(absolute, 0, 3px, 0, auto, 100);
+  width: 12px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 6px;
+  .top {
+    .position(absolute, 0, 1px);
+    width: 10px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+  }
 }

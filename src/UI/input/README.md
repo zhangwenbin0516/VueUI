@@ -10,6 +10,7 @@
       :reg="reg"                    //输入信息正则验证，失去焦点触发
       :readonly=true                //禁止输入
       :disabled=true                //禁止事件
+      :clear=true                   //可清除选项
       :maxlength="length"           //限制输入框信息长度
       @getInput="getData"           //获取数据事件
     />

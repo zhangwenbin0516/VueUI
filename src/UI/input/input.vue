@@ -1,10 +1,16 @@
 <template>
-  <div class="input" :class="isColor">
+  <div class="input"
+       :class="[isColor, (message != '') && (!disabled) ? 'close' : '']"
+       @mouseenter="getMouseEnter($event)"
+       @mouseleave="getMouseLeave($event)"
+  >
     <input
       :type="type"
       :placeholder="placeholder"
       v-model="message"
       :maxlength="maxlength"
+      :disabled="disabled"
+      :readonly="readonly"
       @input="getData"
       @blur="getBlur"
       @focus="getFocus"
@@ -21,8 +27,16 @@
         default: () => {return ''}
       },
       maxlength: {
-        type: [Number],
+        type: [Number, String],
         default: () => {return ''}
+      },
+      disabled: {
+        type: Boolean,
+        default: () => false
+      },
+      readonly: {
+        type: Boolean,
+        default: () => false
       },
       type: {
         type: String,
@@ -66,6 +80,29 @@
         if (e.keyCode == 13) {
           this.$emit('getInput', this.message);
         }
+      },
+      getMouseEnter(e) {
+        let el = e.target || e.srcElement;
+        let w = el.offsetWidth;
+        let h = el.offsetHeight;
+        let self = this;
+        el.onclick = function(e) {
+          let x = e.offsetX;
+          let y = e.offsetY;
+          let xRt = w -8;
+          let xLt = xRt - 20;
+          let yTp = (h - 20) / 2;
+          let yBm = yTp + 20;
+          if (x > xLt && x < xRt) {
+            if (y > yTp && y < yBm && !self.disabled) {
+              self.message = '';
+            }
+          }
+        }
+      },
+      getMouseLeave(e) {
+        let el = e.target || e.srcElement;
+        el.onclick = null;
       }
     }
   }

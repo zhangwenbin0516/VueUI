@@ -6,6 +6,7 @@ const config = {
   input: require('ui/input/input'),           //输入框
   tree: require('ui/tree/tree'),              //树状图
   textarea: require('ui/textarea/textarea'),  //文本域
+  select: require('ui/select/select'),        //下拉框
 }
 
 const Tools = {

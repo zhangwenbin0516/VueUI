@@ -8,6 +8,8 @@
       type="text"                   //确定输入框类型
       :placeholder="placeholder"    //显示输入框提示语
       :reg="reg"                    //输入信息正则验证，失去焦点触发
+      :readonly=true                //禁止输入
+      :disabled=true                //禁止事件
       :maxlength="length"           //限制输入框信息长度
       @getInput="getData"           //获取数据事件
     />

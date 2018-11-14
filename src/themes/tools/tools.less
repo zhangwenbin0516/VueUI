@@ -220,10 +220,24 @@
       color: @red;
     }
   }
+  &.close {
+    &::before {
+      width: 20px;
+      height: 20px;
+      content: 'x';
+      .position(absolute, 50%, 8px, auto, auto, 10);
+      margin-top: -10px;
+      .flex(c);
+      background: @b999;
+      .font(13px, @fff);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
   & > input {
     border: none;
     height: 100%;
-    padding: 0 15px;
+    padding: 0 35px 0 15px;
     width: 100%;
     display: inline-block;
   }
@@ -248,4 +262,7 @@
     .position(absolute, auto, 10px, 5px);
     .font(12px, @b333);
   }
+}
+.select {
+
 }

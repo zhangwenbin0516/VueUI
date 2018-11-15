@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div class="blank"></div>
     <ui-input
       v-model="value"
       type="text"
@@ -7,12 +8,14 @@
       :maxlength="length"
       @getInput="getData"
     />
+    <div class="blank"></div>
     <ui-textarea
       v-model="value1"
       :placeholder="placeholder"
       :maxlength="length"
       @getTextarea="getData"
     />
+    <div class="blank"></div>
     <ui-tree
       :checkbox=true
       :treeLists="lists"
@@ -20,6 +23,7 @@
       :keys="keys"
       @treeData="treeData"
     />
+    <div class="blank"></div>
     <ui-select
       :options="options"
       v-model="value2"

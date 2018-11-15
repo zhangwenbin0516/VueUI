@@ -8,6 +8,7 @@ const config = {
   textarea: require('ui/textarea/textarea'),  //文本域
   select: require('ui/select/select'),        //下拉框
   option: require('ui/select/option'),        //下拉列表
+  scroll: require('ui/scroll/scroll'),        //滚动条
 }
 
 const Tools = {

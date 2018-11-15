@@ -2,11 +2,13 @@
   <div class="root">
     <ui-header />
     <div class="master">
-      <router-view
-        class="master_content"
-        :style="{height: height}"
-      />
-      <ui-footer />
+      <div class="isScroll">
+        <router-view
+          class="master_content"
+        />
+        <ui-footer />
+      </div>
+      <ui-scroll />
     </div>
   </div>
 </template>
@@ -44,9 +46,7 @@
       this.getUrl();
     },
     mounted() {
-      setTimeout(() => {
-        this.getSize();
-      },100);
+      this.getSize();
     },
     methods: {
       getUrl() {
@@ -55,21 +55,21 @@
         }
       },
       getSize() {
-        try {
-          let ele = this.$el.querySelector('.master');
-          let header = this.$el.querySelector('header');
-          let footer = this.$el.querySelector('footer');
-          let master = this.$el.querySelector('.master_content');
-          let space = ele.offsetHeight - header.offsetHeight - footer.offsetHeight;
-          let cons = master.offsetHeight;
-          if (cons > space) {
-            this.height = 'auto';
-          } else {
-            this.height = space + 'px';
+        let self = this;
+        let masters = function() {
+          try {
+            let ele = self.$el.querySelector('.master');
+            let cons = ele.offsetHeight;
+            let str = self.$el.querySelector('.master_content');
+            let foot = self.$el.querySelector('.footer').offsetHeight;
+            str.style.minHeight = (cons - foot) + 'px';
+          } catch (e) {
+            setTimeout(() => {
+              masters();
+            }, 100)
           }
-        } catch (e) {
-          
         }
+        masters();
       }
     },
     watch: {

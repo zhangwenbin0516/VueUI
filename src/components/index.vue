@@ -2,7 +2,7 @@
   <div class="root">
     <ui-header />
     <div class="master" v-onscroll="">
-      <div class="isScroll">
+      <div class="">
         <router-view
           class="master_content"
         />

@@ -7,20 +7,17 @@
       :clear="clear"
       v-model="message"
     />
-    <div class="select_option">
+    <div class="select_option" v-onscroll="">
       <ui-option
         :options="options"
         @getOption="getOption"
       />
-      <ui-scroll />
     </div>
   </div>
 </template>
 <script>
-  import UiScroll from "../scroll/scroll";
   export default {
     name: 'ui-select',
-    components: {UiScroll},
     props: {
       value: {
         type: [Boolean, Number, String],

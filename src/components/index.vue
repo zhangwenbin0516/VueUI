@@ -1,14 +1,13 @@
 <template>
   <div class="root">
     <ui-header />
-    <div class="master">
+    <div class="master" v-onscroll="">
       <div class="isScroll">
         <router-view
           class="master_content"
         />
         <ui-footer />
       </div>
-      <ui-scroll />
     </div>
   </div>
 </template>

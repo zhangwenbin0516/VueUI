@@ -47,52 +47,64 @@
         options: [
           {
             id: 0,
-            name: '测试',
+            name: '测试1',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试2',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试3',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试4',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试5',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试6',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试7',
+            value: 'ceshi',
+            options: [
+              {
+                id: 0,
+                name: '测试6',
+                value: 'ceshi'
+              },
+              {
+                id: 0,
+                name: '测试7',
+                value: 'ceshi'
+              }
+            ]
+          },
+          {
+            id: 0,
+            name: '测试8',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
+            name: '测试9',
             value: 'ceshi'
           },
           {
             id: 0,
-            name: '测试',
-            value: 'ceshi'
-          },
-          {
-            id: 0,
-            name: '测试',
+            name: '测试10',
             value: 'ceshi'
           }
         ],

@@ -10,6 +10,7 @@
     <div class="select_option parentScroll">
       <ui-option
         :options="options"
+        :checked="checked"
         @getOption="getOption"
       />
       <ui-scroll />

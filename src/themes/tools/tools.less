@@ -292,9 +292,32 @@
       width: 100%;
     }
     li {
-      padding: 8px 20px 8px 10px;
+      padding: 0px 20px 0px 10px;
       cursor: pointer;
       .font(13px, @b333);
+      .row {
+        .flex(l);
+        .checkbox {
+          margin-right: 8px;
+          width: 16px;
+          height: 16px;
+          border: 1px solid @ccc;
+          &.tab {
+            position: relative;
+            &::before {
+              content: '\221A';
+              .position(absolute, -3px, 5px);
+              .font(18px, @b333, 600);
+              -webkit-transform: scale(1.2, 0.6) rotate(15deg);
+              transform: scale(1.2, 0.6) rotate(15deg);
+            }
+          }
+        }
+        .name {
+          padding: 8px 0;
+        }
+      }
+
       &:hover {
         background: rgba(0,0,0,0.05);
       }

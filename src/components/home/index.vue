@@ -48,12 +48,12 @@
           {
             id: 0,
             name: '测试1',
-            value: 'ceshi'
+            value: 'ceshi1'
           },
           {
             id: 0,
             name: '测试2',
-            value: 'ceshi'
+            value: 'ceshi2'
           },
           {
             id: 0,

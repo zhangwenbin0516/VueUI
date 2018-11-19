@@ -312,9 +312,21 @@
               transform: scale(1.2, 0.6) rotate(15deg);
             }
           }
+          &.tag {
+            position: relative;
+            &::before {
+              content: '-';
+              .position(absolute, -5px, 6px);
+              .font(18px, @b333, 600);
+              -webkit-transform: scale(1.6, 0.8) rotate(0deg);
+              transform: scale(1.6, 0.8) rotate(0deg);
+            }
+          }
         }
         .name {
           padding: 8px 0;
+          width: 100%;
+          .flex(l);
         }
       }
 

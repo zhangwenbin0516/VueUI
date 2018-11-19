@@ -55,7 +55,7 @@
     },
     methods: {
       getOption(val) {
-
+        console.log(val)
       }
     }
   }

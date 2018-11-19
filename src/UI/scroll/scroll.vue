@@ -72,7 +72,18 @@
             nm++;
           }
         });
-        ele = ele.sort((x,y) => {return x.num < y.num});
+        const arrSort = (val1, val2) => {
+          let num1 = val1.num;
+          let num2 = val2.num;
+          if (num1 > num2) {
+            return -1;
+          } else if (num1 < num2) {
+            return 1;
+          } else {
+            return 0;
+          }
+        };
+        ele.sort(arrSort);
         let num = 0;
         function ranking() {
           if (ele[num].minX < pageX && ele[num].maxX > pageX) {

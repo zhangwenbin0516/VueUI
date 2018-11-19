@@ -1,5 +1,5 @@
 <template>
-  <div class="options isScroll" v-if="options && options.length > 0">
+  <div class="options" v-if="options && options.length > 0">
     <ul>
       <li v-for="option in options">
         <div class="name">{{option.name}}</div>

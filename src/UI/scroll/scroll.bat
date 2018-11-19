@@ -2,13 +2,13 @@
 const scroll = (Vue) => {
   Vue.directive('onscroll', {
     inserted: function(el, binding, vnode) {
-      let ele = {};
+      let ele = {el: []};
       let first = el.firstChild;
       if (!/isScroll/.test(ele.first)) {
         first.className += ' isScroll';
       }
       let scroll = el.lastChild;
-      if (!ele.scroll) {
+      if (!/scrolls/.test(scroll.className)) {
         scroll = document.createElement('div');
         scroll.className = 'scrolls';
         scroll.innerHTML = '<div class="top"></div>';
@@ -21,13 +21,13 @@ const scroll = (Vue) => {
       if (ch <= h) {
         scroll.style.display = 'none';
       }
-      console.log(el,th,h)
       tp.style.height = th + 'px';
+      console.log(this)
       el.onmouseenter = function (e) {
         let el = e.target || e.srcElement;
         let version = window.navigator.userAgent;
-        window.$ele = el;
-        ele.el = window.$ele;
+        ele.el.push(el);
+        console.log(ele.el)
         if (/Firefox/.test(version)) {
           el.addEventListener('DOMMouseScroll', mouseWheel, false);
         } else {
@@ -37,7 +37,8 @@ const scroll = (Vue) => {
       el.onmouseleave = function (e) {
         let el = e.target || e.srcElement;
         let version = window.navigator.userAgent;
-        window.$ele = null;
+        ele.el = ele.el.splice((ele.el.length - 1), 1);
+        console.log(ele.el)
         if (/Firefox/.test(version)) {
           el.addEventListener('DOMMouseScroll', null, false);
         } else {
@@ -45,7 +46,7 @@ const scroll = (Vue) => {
         }
       };
       const getElement = () => {
-        ele.el = window.$ele;
+        console.log(ele.el)
         ele.first = ele.el.firstChild;
         ele.scroll = ele.el.lastChild;
         ele.tp = ele.scroll.querySelector(".top");

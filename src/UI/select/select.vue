@@ -7,11 +7,12 @@
       :clear="clear"
       v-model="message"
     />
-    <div class="select_option" v-onscroll="">
+    <div class="select_option parentScroll">
       <ui-option
         :options="options"
         @getOption="getOption"
       />
+      <ui-scroll />
     </div>
   </div>
 </template>

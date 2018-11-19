@@ -19,11 +19,11 @@ const Tools = {
       } else {
         Vue.component(config[i].default.name, config[i].default);
       }
-      if (typeof config[i] == 'function') { //注册全局指令
+      /*if (typeof config[i] == 'function') { //注册全局指令
         config[i](Vue);
       } else if (typeof config[i].default == 'function') {
         config[i].default(Vue);
-      }
+      }*/
     }
   }
 }

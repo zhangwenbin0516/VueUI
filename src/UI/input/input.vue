@@ -64,6 +64,11 @@
     created() {
       this.message = this.value;
     },
+    watch: {
+      value(val) {
+        this.message = val;
+      }
+    },
     methods: {
       getData() {
         this.$emit('input', this.message);

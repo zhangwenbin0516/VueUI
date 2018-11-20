@@ -27,17 +27,14 @@
     <ui-select
       :options="options"
       v-model="value2"
-      :checked=true
       :placeholder="placeholder"
       @getOption="getData"
     />
   </div>
 </template>
 <script>
-  import UiSelect from "../../UI/select/select";
   export default {
     name: 'home',
-    components: {UiSelect},
     data() {
       return {
         value: '',
@@ -145,7 +142,7 @@
     },
     methods: {
       getData(data) {
-console.log(data)
+        console.log(data)
       },
       treeData(data) {
 console.log(data)

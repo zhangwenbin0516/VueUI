@@ -50,12 +50,23 @@
         default: () => false
       }
     },
+    data() {
+      return {
+        message: ''
+      }
+    },
     created() {
       this.message = this.value;
     },
     methods: {
       getOption(val) {
-        console.log(val)
+        let arr = [];
+        for (let i in val) {
+          arr.push(val[i].name);
+        }
+        this.$set(this, 'message', arr.join(','));
+        this.$emit('input', this.message);
+        this.$emit('getOption', val);
       }
     }
   }

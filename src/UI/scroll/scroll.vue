@@ -11,6 +11,10 @@
     name: 'ui-scroll',
     mounted() {
       this.getReady();
+      let self = this;
+      this.$el.parentNode.onmouseenter = function() {
+        self.getReady();
+      }
     },
     data() {
       return {
